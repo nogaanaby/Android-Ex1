@@ -1,6 +1,7 @@
 package com.example.ex1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder> {
+public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.CharacterViewHolder> {
 
     private final List<Character> characters;
     private final Context context;
 
-    public CharacterAdapter(List<Character> characters, Context context) {
+    public ProfileAdapter(List<Character> characters, Context context) {
         this.characters = characters;
         this.context = context;
     }
@@ -24,7 +25,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
     @NonNull
     @Override
     public CharacterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.profile_activity, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.character_item, parent, false);
         return new CharacterViewHolder(view);
     }
 
@@ -32,10 +33,17 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
     public void onBindViewHolder(@NonNull CharacterViewHolder holder, int position) {
         Character character = characters.get(position);
         holder.nameTextView.setText(character.getName());
-        holder.emailTextView.setText(character.getEmail());
-        holder.phoneTextView.setText(character.getPhone());
-        holder.hobbyTextView.setText(character.getHobby());
         holder.imageView.setImageResource(character.getImageResourceId());
+
+        holder.imageView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProfileActivity.class);
+            intent.putExtra("name", character.getName());
+            intent.putExtra("email", character.getEmail());
+            intent.putExtra("phone", character.getPhone());
+            intent.putExtra("hobby", character.getHobby());
+            intent.putExtra("imageResourceId", character.getImageResourceId());
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -44,15 +52,12 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
     }
 
     public static class CharacterViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView, emailTextView, phoneTextView, hobbyTextView;
+        TextView nameTextView;
         ImageView imageView;
 
         public CharacterViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.character_name);
-            emailTextView = itemView.findViewById(R.id.character_email);
-            phoneTextView = itemView.findViewById(R.id.character_phone);
-            hobbyTextView = itemView.findViewById(R.id.character_hobby);
             imageView = itemView.findViewById(R.id.character_image);
         }
     }

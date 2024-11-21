@@ -8,4 +8,5 @@
     <string name="previous">Previous</string>
     <string name="total_likes">Total likes: %d</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="button_icon">Button Icon</string>
 </resources>
