@@ -1,6 +1,7 @@
 package com.example.ex1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,16 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
         Character character = characterList.get(position);
         holder.characterNameTextView.setText(character.getName());
         holder.characterImageView.setImageDrawable(context.getDrawable(character.getImageResourceId()));
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProfileActivity.class);
+            intent.putExtra("name", character.getName());
+            intent.putExtra("email", character.getEmail());
+            intent.putExtra("phone", character.getPhone());
+            intent.putExtra("hobby", character.getHobby());
+            intent.putExtra("imageResourceId", character.getImageResourceId());
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -50,5 +61,4 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
             characterImageView = itemView.findViewById(R.id.character_image);
         }
     }
-
 }
