@@ -21,7 +21,7 @@
             android:id="@+id/character_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="name"
+            android:text="@string/name"
             android:textSize="18sp"
             android:layout_marginTop="16dp"/>
 
@@ -29,19 +29,19 @@
             android:id="@+id/character_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="mail: example@example.com"/>
+            android:text="@string/mail_example"/>
 
         <TextView
             android:id="@+id/character_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="phone: 123-456-7890"/>
+            android:text="@string/phone_example"/>
 
         <TextView
             android:id="@+id/character_hobby"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hobbies: Playing Guitar"/>
+            android:text="@string/hobbies_example"/>
 
         <TextView
             android:id="@+id/total_likes"
@@ -54,7 +54,7 @@
             android:id="@+id/like_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="like"
+            android:text="@string/like"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"/>
     </LinearLayout>
