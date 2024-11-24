@@ -9,4 +9,10 @@
     <string name="total_likes">Total likes: %d</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
     <string name="button_icon">Button Icon</string>
+    <string name="select_a_character">Select a Character</string>
+    <string name="name">Name</string>
+    <string name="mail_example">Mail: example@example.com</string>
+    <string name="phone_example">Phone: 123–456–7890</string>
+    <string name="hobbies_example">Hobbies: Playing Guitar</string>
+    <string name="like">Like</string>
 </resources>
