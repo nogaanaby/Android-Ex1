@@ -15,4 +15,5 @@
     <string name="phone_example">Phone: 123–456–7890</string>
     <string name="hobbies_example">Hobbies: Playing Guitar</string>
     <string name="like">Like</string>
+    <string name="back">Back</string>
 </resources>

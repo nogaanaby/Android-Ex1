@@ -1,5 +1,6 @@
 package com.example.ex1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +44,15 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 totalLikes++;
                 totalLikesTextView.setText(String.format(getString(R.string.total_likes), totalLikes));
+            }
+        });
+
+        Button backButton = findViewById(R.id.back_to_main_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
